@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Magic Glow Lipstick | M-BLITHE ปากชุ่มชื้น ไม่แห้งแตก</title>
-  <meta name="description" content="ลิปสติกบำรุงริมฝีปาก Magic Glow จาก M-BLITHE ชุ่มชื้นยาวนาน ปากดูสุขภาพดี 6 เฉดสี พร้อมส่ง ส่งฟรี เก็บเงินปลายทาง">
+  <title>Magic Glow Lipstick | M-BLITHE ปากชุ่มชื้น เงางาม สุขภาพดี</title>
+  <meta name="description" content="Magic Glow Lipstick จาก M-BLITHE ลิปบำรุงฉ่ำวาว ชุ่มชื้นยาวนาน ปากดูสุขภาพดี มีให้เลือก 6 เฉดสี พร้อมส่ง">
   <link rel="canonical" href="https://tuowzz.github.io/mbshopz.github.io/magicglow" />
+  <meta name="keywords" content="Magic Glow, M-BLITHE, ลิปบำรุง, ลิปสติกฉ่ำวาว, ลิปชุ่มชื้น, ลิปสีสวย">
 
   <!-- Facebook Pixel -->
   <script>
@@ -38,18 +39,26 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
   <style>
     :root{--primary:#ee4d2d;--brand:#e94057;--bg:#f6f7fb;--card:#fff;--line:#eee;--text:#161823;--muted:#888;--shadow:0 2px 18px rgba(0,0,0,.06);--r:14px}
     *{box-sizing:border-box}
     body{font-family:'Kanit',sans-serif;margin:0;background:var(--bg);color:var(--text);padding-bottom:76px}
+    a{color:inherit;text-decoration:none}
+
+    /* Header */
     header{background:#fff;box-shadow:var(--shadow);position:sticky;top:0;z-index:50}
     .topbar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px}
     .left{display:flex;gap:10px;align-items:center}
     .logo{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#ff7e5f,#feb47b);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
-    .line-top{display:inline-flex;gap:8px;align-items:center;background:#06c755;color:#fff;text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:800;box-shadow:0 2px 10px rgba(6,199,85,.12)}
+    .line-top{display:inline-flex;gap:8px;align-items:center;background:#06c755;color:#fff;padding:8px 12px;border-radius:10px;font-weight:800;box-shadow:0 2px 10px rgba(6,199,85,.12)}
+
+    /* Hero */
     .hero img{width:100%;display:block}
     .voucher-row{display:flex;gap:8px;padding:10px 14px;background:#fff}
     .voucher{flex:1;border:1px dashed var(--primary);border-radius:10px;padding:8px 10px;font-weight:700;color:var(--primary);text-align:center}
+
+    /* Cards */
     .card{background:var(--card);border-radius:0 0 var(--r) var(--r);box-shadow:var(--shadow);margin-bottom:10px}
     .pad{padding:14px}
     .price{color:var(--primary);font-size:2rem;font-weight:800}
@@ -59,26 +68,38 @@
     .badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
     .badge{font-size:.9rem;font-weight:700;border-radius:6px;padding:3px 8px;background:#fff5ef;border:1px solid #ffd6c9;color:#c23a1a}
     .divider{height:1px;background:#f0f0f0;margin:12px 0}
+
+    /* Shade chips */
     .options{display:flex;gap:9px;flex-wrap:wrap}
     .chip{border:1.8px solid #eee;background:#fff;border-radius:10px;padding:8px 12px;font-weight:700;cursor:pointer}
     .chip.selected{border-color:var(--primary);background:#ffe7df;color:#c23a1a;box-shadow:0 1px 6px #ffbfab66}
-    .thumb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    .thumb-grid img{width:100%;border-radius:12px;box-shadow:0 2px 8px #0001}
+
+    /* Shade showcase */
+    .thumb-grid img{width:90%;max-width:330px;border-radius:14px}
+    .choose{background:#ee4d2d;color:#fff;border:none;border-radius:10px;padding:10px 16px;font-weight:800;cursor:pointer}
+
+    /* Sticky CTA */
     .sticky{position:fixed;left:0;right:0;bottom:0;display:flex;height:62px;background:#fff;border-top:1px solid #eee;box-shadow:0 -2px 14px rgba(0,0,0,.08);z-index:60}
     .btn{display:flex;align-items:center;justify-content:center;font-weight:800;border:none;cursor:pointer}
-    .btn-line{width:40%;background:#06c755;color:#fff;text-decoration:none}
+    .btn-line{width:40%;background:#06c755;color:#fff}
     .btn-buy{width:60%;background:var(--primary);color:#fff;font-size:1.14rem}
+
+    /* Bottom Sheet */
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:80}
     .sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:18px 18px 0 0;box-shadow:var(--shadow);padding:16px;animation:slideUp .18s;max-height:93vh;overflow:auto}
     @keyframes slideUp{from{transform:translateY(30%);opacity:.4}to{transform:translateY(0);opacity:1}}
     .close{position:absolute;right:14px;top:10px;font-size:1.4rem;color:#bbb;cursor:pointer}
     .sheet-h{display:flex;gap:12px;align-items:center;border-bottom:1px solid #f0f0f0;padding-bottom:10px;margin-bottom:10px}
     .sheet-h img{width:64px;height:64px;border-radius:10px;border:1px solid #eee;object-fit:cover}
+
+    /* Form */
     .form label{display:block;font-weight:700;margin:10px 0 6px}
     .form input,.form textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;font-family:'Kanit',sans-serif}
     .pdpa{font-size:12px;color:#666;margin-top:6px;background:#fff6f7;border:1px solid #ffd6de;border-radius:8px;padding:8px 10px}
     .submit{width:100%;margin-top:12px;background:var(--primary);color:#fff;border:none;border-radius:10px;padding:14px;font-weight:800;cursor:pointer}
     .submit:disabled{background:#ddd}
+
+    /* Toast */
     .toast{display:none;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border-radius:16px;padding:26px 36px;box-shadow:var(--shadow);z-index:200;text-align:center}
     .toast i{font-size:2.6rem;color:var(--brand)}
   </style>
@@ -91,7 +112,7 @@
         <div class="logo">MB</div>
         <div>
           <div style="font-weight:700">M-BLITHE Official</div>
-          <div style="font-size:.9rem;color:#666">ของแท้ 100% • ส่งฟรี • เก็บเงินปลายทาง</div>
+          <div style="font-size:.9rem;color:#666">ของแท้ 100% • ส่งฟรี</div>
         </div>
       </div>
       <a href="https://lin.ee/wKelfsp" target="_blank" class="line-top" id="lineTop"><i class="fa-brands fa-line"></i> แอดไลน์รับโปร</a>
@@ -100,19 +121,17 @@
 
   <!-- Hero -->
   <section class="hero">
-    <img src="magicglow_hero.png" alt="M-BLITHE Magic Glow">
+    <img src="magicglow_hero.png" alt="Magic Glow Lipstick M-BLITHE">
     <div class="voucher-row">
       <div class="voucher">คูปอง ฿20 ขั้นต่ำ ฿199</div>
       <div class="voucher">ลดเพิ่ม ฿10 โค้ด: GLOW10</div>
     </div>
   </section>
 
-  <!-- Price + Shade only (บังคับ 1 แท่ง) -->
+  <!-- ราคา + ชิปเลือกสี (เลือกได้ 1 สี) -->
   <section class="card">
     <div class="pad">
-      <div style="display:flex;align-items:flex-end">
-        <div class="price">฿199</div><div class="price-old">฿259</div>
-      </div>
+      <div style="display:flex;align-items:flex-end"><div class="price">฿199</div><div class="price-old">฿259</div></div>
       <div class="rating"><span class="stars">★★★★★</span><span>4.9</span><span style="color:#666">| ขายแล้ว 3.1k</span></div>
       <div class="badges"><span class="badge">ส่งฟรี</span><span class="badge">พร้อมส่ง</span></div>
 
@@ -123,17 +142,59 @@
     </div>
   </section>
 
-  <!-- Shades images -->
-  <section class="card">
-    <div class="pad">
-      <h3 style="margin:0 0 8px 0;font-size:1.02rem">✨ Magic Glow 6 สี</h3>
-      <div class="thumb-grid">
-        <img src="831.jpg" alt="831 Bewitching Berry - ลิปสติกสีเบอร์รี่ ปากชมพูอมแดง สุขภาพดี Magic Glow M-BLITHE">
-        <img src="832.jpg" alt="832 Mystic Merlot - ลิปสติกสีไวน์แดง บำรุงริมฝีปากนุ่มชุ่มชื้น ไม่แห้งแตก">
-        <img src="833.jpg" alt="833 Moon Beam - ลิปสติกสีชมพูอ่อนธรรมชาติ ปากดูใส สุขภาพดี">
-        <img src="834.jpg" alt="834 Forbidden Potion - ลิปสติกสีชมพูสด เติมความชุ่มชื้น ริมฝีปากอิ่มน้ำ">
-        <img src="835.jpg" alt="835 Crimson Charm - ลิปสติกสีแดงอมชมพู ปากนุ่มน่าสัมผัส บำรุงไม่คล้ำ">
-        <img src="836.jpg" alt="836 Lunar Lust - ลิปสติกสีชมพูพีชธรรมชาติ ใช้ได้ทุกวัน ปากดูอ่อนเยาว์">
+  <!-- Showcase แต่ละสี + ปุ่มเลือกสีนี้ -->
+  <section class="card" id="shadeShowcase">
+    <div class="pad thumb-grid">
+      <h3 style="margin:0 0 12px 0;font-size:1.1rem;font-weight:700;">
+        ✨ เลือกเฉดสี Magic Glow ที่ใช่สำหรับคุณ
+      </h3>
+
+      <!-- 831 -->
+      <div style="text-align:center;margin-bottom:28px;">
+        <img src="831.jpg" alt="831 Bewitching Berry" data-shade="831" class="shade-img">
+        <div style="font-size:1.2rem;font-weight:700;color:#e94057;margin-top:8px;">831 Bewitching Berry</div>
+        <p style="color:#666;margin:6px 0 10px 0;font-size:1rem;">✨ สีชมพูอมแดง สวยละมุน ปากดูสุขภาพดี เหมือนเกิดมาปากสวยแต่กำเนิด</p>
+        <button class="choose" data-choose="831">เลือกสีนี้</button>
+      </div>
+
+      <!-- 832 -->
+      <div style="text-align:center;margin-bottom:28px;">
+        <img src="832.jpg" alt="832 Mystic Merlot" data-shade="832" class="shade-img">
+        <div style="font-size:1.2rem;font-weight:700;color:#e94057;margin-top:8px;">832 Mystic Merlot</div>
+        <p style="color:#666;margin:6px 0 10px 0;font-size:1rem;">💋 ไวน์แดงสุดแพง ปากดูหรู ฉ่ำแบบผู้หญิงมีพลัง ดึงดูดทุกสายตา</p>
+        <button class="choose" data-choose="832">เลือกสีนี้</button>
+      </div>
+
+      <!-- 833 -->
+      <div style="text-align:center;margin-bottom:28px;">
+        <img src="833.jpg" alt="833 Moon Beam" data-shade="833" class="shade-img">
+        <div style="font-size:1.2rem;font-weight:700;color:#e94057;margin-top:8px;">833 Moon Beam</div>
+        <p style="color:#666;margin:6px 0 10px 0;font-size:1rem;">🤍 ชมพูใสฟีลคุณหนู ดูแพงแบบโนเมคอัพ ปากสวยเหมือนฟิลเตอร์กล้อง</p>
+        <button class="choose" data-choose="833">เลือกสีนี้</button>
+      </div>
+
+      <!-- 834 -->
+      <div style="text-align:center;margin-bottom:28px;">
+        <img src="834.jpg" alt="834 Forbidden Potion" data-shade="834" class="shade-img">
+        <div style="font-size:1.2rem;font-weight:700;color:#e94057;margin-top:8px;">834 Forbidden Potion</div>
+        <p style="color:#666;margin:6px 0 10px 0;font-size:1rem;">💗 สดใสเหมือนเด็กวัยแรกแย้ม ทาแล้วหน้าไบรท์ขึ้นทันที</p>
+        <button class="choose" data-choose="834">เลือกสีนี้</button>
+      </div>
+
+      <!-- 835 -->
+      <div style="text-align:center;margin-bottom:28px;">
+        <img src="835.jpg" alt="835 Crimson Charm" data-shade="835" class="shade-img">
+        <div style="font-size:1.2rem;font-weight:700;color:#e94057;margin-top:8px;">835 Crimson Charm</div>
+        <p style="color:#666;margin:6px 0 10px 0;font-size:1rem;">❤️ ปากสวยน่าจูบ ดึงดูดแบบหญิงสาวมีเสน่ห์ ไม่แรงเกิน แต่เซ็กซี่มาก</p>
+        <button class="choose" data-choose="835">เลือกสีนี้</button>
+      </div>
+
+      <!-- 836 -->
+      <div style="text-align:center;margin-bottom:10px;">
+        <img src="836.jpg" alt="836 Lunar Lust" data-shade="836" class="shade-img">
+        <div style="font-size:1.2rem;font-weight:700;color:#e94057;margin-top:8px;">836 Lunar Lust</div>
+        <p style="color:#666;margin:6px 0 10px 0;font-size:1rem;">🍑 พีชธรรมชาติ ทาแล้วปากดูเด็กลง 5 ปี สวยแบบ no makeup look</p>
+        <button class="choose" data-choose="836">เลือกสีนี้</button>
       </div>
     </div>
   </section>
@@ -144,12 +205,12 @@
     <button class="btn btn-buy" id="buy">ซื้อเลย</button>
   </div>
 
-  <!-- Bottom Sheet (ไม่มีตัวเลือกจำนวนแล้ว) -->
+  <!-- Bottom Sheet (บังคับ 1 แท่ง 1 สี) -->
   <div class="overlay" id="sheet">
     <div class="sheet">
       <i class="fa-solid fa-xmark close" id="close"></i>
       <div class="sheet-h">
-        <img src="magicglow_thumb.png" alt="Magic Glow">
+        <img src="magicglow_hero.png" alt="Magic Glow Thumbnail">
         <div>
           <div style="font-weight:700">M-BLITHE Magic Glow Lipstick</div>
           <div style="color:#ee4d2d;font-weight:800">฿199</div>
@@ -159,7 +220,7 @@
       <div style="font-weight:700;margin-bottom:6px">เลือกเฉดสี</div>
       <div class="options" id="optM" style="margin-bottom:8px"></div>
 
-      <!-- ส่งเฉพาะ 5 ฟิลด์ -->
+      <!-- ฟอร์ม: ส่ง 5 ฟิลด์ (Order ID, Product, Name, Phone, Address) -->
       <form id="orderForm" class="form" onsubmit="sendOrder(event)" autocomplete="off">
         <input type="hidden" name="order_id" id="order_id">
         <input type="hidden" name="product" id="product">
@@ -173,10 +234,8 @@
         <label for="address">ที่อยู่จัดส่ง</label>
         <textarea id="address" name="address" rows="3" required placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์"></textarea>
 
-        <!-- PDPA -->
         <div class="pdpa">
-          ข้อมูลของท่านจะถูกใช้เพื่อยืนยันคำสั่งซื้อและจัดส่งสินค้าเท่านั้น
-          และจะถูกเก็บรักษาตามมาตรการ PDPA ของเรา
+          ข้อมูลของท่านจะถูกใช้เพื่อยืนยันคำสั่งซื้อและจัดส่งสินค้าเท่านั้น และจะถูกเก็บรักษาตามมาตรการ PDPA ของเรา
         </div>
 
         <button class="submit" id="submitBtn" type="submit">ยืนยันสั่งซื้อ</button>
@@ -184,6 +243,7 @@
     </div>
   </div>
 
+  <!-- Toast -->
   <div class="toast" id="toast">
     <i class="fa-solid fa-circle-check"></i>
     <div style="margin-top:6px;font-weight:800">สั่งซื้อสำเร็จ!</div>
@@ -191,7 +251,7 @@
   </div>
 
   <script>
-    // ===== CONFIG =====
+    /* ===== CONFIG ===== */
     const APP_URL = 'https://script.google.com/macros/s/AKfycbzBFS1zxkrbiOpcP-1wYxALRfU3wJprPRT9KJju2wWEY2Rdd7OnJbFDTCErH-amUZrO/exec';
     const PRICE = 199;
     const SHADES = [
@@ -203,7 +263,7 @@
       {id:'836', text:'836 Lunar Lust (พีชธรรมชาติ)'}
     ];
 
-    // ===== Elements =====
+    /* ===== Elements ===== */
     const opt = document.getElementById('opt');
     const optM = document.getElementById('optM');
     const sheet = document.getElementById('sheet');
@@ -214,7 +274,7 @@
     const submitBtn = document.getElementById('submitBtn');
     const toast = document.getElementById('toast');
 
-    // Render shade chips (single choice)
+    /* ===== Render chips (หน้า/โมดัล) ===== */
     function renderChips() {
       [opt,optM].forEach(w=>{
         w.innerHTML='';
@@ -237,17 +297,16 @@
       return el ? el.textContent : SHADES[0].text;
     }
 
-    // Default: first shade selected
+    // Init: render + default select
     renderChips(); selectShade(SHADES[0].id);
 
+    /* ===== Product embed (บังคับ 1 แท่ง) ===== */
     function updateProductEmbed(){
-      // บังคับซื้อ 1 แท่งเสมอ (ตัด x จำนวนออก)
       productField.value = `M-BLITHE Magic Glow Lipstick - ${currentShadeText()} - ${PRICE} บาท`;
     }
 
-    // Open/Close sheet
+    /* ===== Open/Close Sheet ===== */
     buy.onclick=()=>{
-      // ถ้ายังไม่เลือก ให้ select อัตโนมัติ
       if(!document.querySelector('.options .chip.selected')) selectShade(SHADES[0].id);
       sheet.style.display='block';
       if(window.fbq){ fbq('track','AddToCart',{value:PRICE,currency:'THB'}); fbq('track','InitiateCheckout',{value:PRICE,currency:'THB'}); }
@@ -257,19 +316,35 @@
     closeBtn.onclick=()=>sheet.style.display='none';
     sheet.addEventListener('click',e=>{ if(e.target===sheet) sheet.style.display='none'; });
 
-    // LINE track
+    /* ===== LINE track ===== */
     function trackLine(){ if(window.fbq) fbq('track','Contact'); if(window.ttq) ttq.track('Contact'); }
     document.getElementById('lineTop').addEventListener('click',trackLine);
     document.getElementById('lineBottom').addEventListener('click',trackLine);
 
-    // Submit (ONLY 5 FIELDS)
+    /* ===== เลือกสีจากปุ่ม "เลือกสีนี้" หรือคลิกภาพ ===== */
+    function openSheetWithShade(id){
+      selectShade(id);
+      updateProductEmbed();
+      sheet.style.display='block';
+      if(window.fbq){ fbq('track','AddToCart',{value:PRICE,currency:'THB'}); fbq('track','InitiateCheckout',{value:PRICE,currency:'THB'}); }
+      if(window.ttq){ ttq.track('AddToCart'); ttq.track('InitiateCheckout'); }
+      if(window.gtag){ gtag('event','begin_checkout',{value:PRICE,currency:'THB'}); }
+      setTimeout(()=>{ window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'}); }, 50);
+    }
+    document.querySelectorAll('[data-choose]').forEach(btn=>{
+      btn.addEventListener('click', ()=> openSheetWithShade(btn.getAttribute('data-choose')));
+    });
+    document.querySelectorAll('.shade-img').forEach(img=>{
+      img.style.cursor='pointer';
+      img.addEventListener('click', ()=> openSheetWithShade(img.getAttribute('data-shade')));
+    });
+
+    /* ===== Submit to Google Sheet (ONLY 5 FIELDS) ===== */
     async function sendOrder(e){
       e.preventDefault();
-
       orderIdField.value = 'ORD-' + Date.now();
-      updateProductEmbed(); // ensure product text set
+      updateProductEmbed();
 
-      // lock
       const old = submitBtn.textContent;
       submitBtn.disabled=true; submitBtn.textContent='กำลังส่ง...';
 
