@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Magic Glow Lipstick | M-BLITHE ปากชุ่มชื้น เงางาม สุขภาพดี</title>
-  <meta name="description" content="Magic Glow Lipstick จาก M-BLITHE ลิปบำรุงฉ่ำวาว ชุ่มชื้นยาวนาน ปากดูสุขภาพดี มีให้เลือก 6 เฉดสี พร้อมส่ง รีวิวจริง คลิปส่งของทุกวัน">
+  <meta name="description" content="Magic Glow Lipstick จาก M-BLITHE ลิปบำรุงฉ่ำวาว ชุ่มชื้นยาวนาน ปากดูสุขภาพดี 6 เฉดสี รีวิวจริง พร้อมคลิปส่งของทุกวัน">
   <link rel="canonical" href="https://tuowzz.github.io/mbshopz.github.io/magicglow" />
   <meta name="keywords" content="Magic Glow, M-BLITHE, ลิปบำรุง, ลิปฉ่ำวาว, ลิปชุ่มชื้น, รีวิวลิป, ส่งของจริง">
 
@@ -50,7 +50,6 @@
     .topbar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px}
     .left{display:flex;gap:10px;align-items:center}
     .logo{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#ff7e5f,#feb47b);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
-    .line-top{display:inline-flex;gap:8px;align-items:center;background:#06c755;color:#fff;padding:8px 12px;border-radius:10px;font-weight:800;box-shadow:0 2px 10px rgba(6,199,85,.12)}
 
     .hero img{width:100%;display:block}
     .voucher-row{display:flex;gap:8px;padding:10px 14px;background:#fff}
@@ -93,7 +92,6 @@
     .toast{display:none;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border-radius:16px;padding:26px 36px;box-shadow:var(--shadow);z-index:200;text-align:center}
     .toast i{font-size:2.6rem;color:var(--brand)}
 
-    /* รีวิว */
     .review{border-top:1px solid #f0f0f0;padding-top:12px;margin-top:12px}
     .review-h{display:flex;gap:8px;align-items:center;margin-bottom:6px}
     .review-stars{color:#f9d71c}
@@ -104,7 +102,7 @@
   </style>
 </head>
 <body>
-  <!-- Header + LINE -->
+  <!-- Header (ปุ่มไลน์บนถูกย้ายออก) -->
   <header>
     <div class="topbar">
       <div class="left">
@@ -114,7 +112,7 @@
           <div style="font-size:.9rem;color:#666">ของแท้ 100% • ส่งฟรี</div>
         </div>
       </div>
-      <a href="https://lin.ee/wKelfsp" target="_blank" class="line-top" id="lineTop"><i class="fa-brands fa-line"></i> แอดไลน์รับโปร</a>
+      <div style="width:38px;height:38px"></div>
     </div>
   </header>
 
@@ -127,13 +125,43 @@
     </div>
   </section>
 
-  <!-- ราคา + ชิปเลือกสี -->
+  <!-- บทนำสินค้า (บิ้วใต้ภาพแรกๆ) -->
+  <section class="card">
+    <div class="pad">
+      <h2 style="margin:0 0 8px 0;font-size:1.1rem">💖 Magic Glow Lipstick — ปากฉ่ำโกลว์ สุขภาพดีในแท่งเดียว</h2>
+      <p style="color:#555;margin:6px 0 8px 0;line-height:1.55">
+        ลิปบำรุงฉ่ำวาวที่รวม <b>เม็ดสีสวย + สารบำรุงเข้มข้น</b> ให้ปากดูอิ่มน้ำตั้งแต่แรกทา
+        ทาซ้ำระหว่างวันได้ไม่เป็นคราบ <b>ไม่แห้งแตก</b> ช่วยให้ริมฝีปากดูเนียนนุ่มและ
+        <b>ไบรท์ขึ้นทันที</b> เหมาะทั้งวันสบายๆ และวันทำงานที่อยากได้ลุคสวยสุภาพ
+      </p>
+      <ul style="margin:6px 0 0 18px;color:#444;line-height:1.6">
+        <li>ชุ่มชื้นยาวนาน ปากดูอิ่มฟู ไม่ตกร่อง</li>
+        <li>โทนสีคัดมาสำหรับสาวเอเชีย ทาแล้วหน้าไบร์ท</li>
+        <li>เบาสบายปาก ไม่เหนียว ไม่หนัก</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ปุ่มแอดไลน์ (ย้ายมาไว้ช่วงกลาง) -->
+  <section class="card">
+    <div class="pad" style="display:flex;gap:10px;align-items:center;justify-content:space-between">
+      <div>
+        <div style="font-weight:800;margin-bottom:4px">มีคำถามเรื่องเฉด/โทนผิว?</div>
+        <div style="color:#666">แชทคุยกับแอดมิน เลือกสีที่ใช่ พร้อมรับโปรพิเศษ</div>
+      </div>
+      <a href="https://lin.ee/wKelfsp" target="_blank" id="lineMid"
+         style="display:inline-flex;gap:8px;align-items:center;background:#06c755;color:#fff;padding:10px 14px;border-radius:12px;font-weight:800;white-space:nowrap;box-shadow:0 2px 10px rgba(6,199,85,.12)">
+        <i class="fa-brands fa-line"></i> แอดไลน์รับโปร
+      </a>
+    </div>
+  </section>
+
+  <!-- ราคา + ชิปเลือกสี (บังคับ 1 สี) -->
   <section class="card">
     <div class="pad">
       <div style="display:flex;align-items:flex-end"><div class="price">฿199</div><div class="price-old">฿259</div></div>
       <div class="rating"><span class="stars">★★★★★</span><span>4.9</span><span style="color:#666">| ขายแล้ว 3.1k</span></div>
       <div class="badges"><span class="badge">ส่งฟรี</span><span class="badge">พร้อมส่ง</span></div>
-
       <div class="divider"></div>
       <div style="font-weight:700;margin-bottom:6px">เลือกเฉดสี (เลือกได้ 1 สี)</div>
       <div class="options" id="opt"></div>
@@ -187,7 +215,7 @@
 
       <!-- 836 -->
       <div style="text-align:center;margin-bottom:10px;">
-        <img src="836.jpg" alt="836 Lunar Lust" data-shade="836" class="shade-img" style="width:90%;max-width:330px;border-radius:14px;cursor:pointer;">
+        <img src="836.jpg" alt="836 Lunar Lust" data-shade="836" class="shade-img" style="width:90%;max-width:330px;border-radius:14px;cursor:pointer%;">
         <div style="font-size:1.2rem;font-weight:700;color:#e94057;margin-top:8px;">836 Lunar Lust</div>
         <p style="color:#666;margin:6px 0 10px 0;font-size:1rem;">🍑 พีชธรรมชาติ ทาแล้วปากดูเด็กลง 5 ปี สวยแบบ no makeup look</p>
         <button class="choose" data-choose="836">เลือกสีนี้</button>
@@ -200,7 +228,6 @@
     <div class="pad">
       <h3 style="margin:0 0 10px 0;"><i class="fa-solid fa-comments"></i> รีวิวจากลูกค้าจริง</h3>
 
-      <!-- รีวิว 1 -->
       <div class="review">
         <div class="review-h">
           <span class="review-stars">★★★★★</span>
@@ -216,7 +243,6 @@
         </div>
       </div>
 
-      <!-- รีวิว 2 -->
       <div class="review">
         <div class="review-h">
           <span class="review-stars">★★★★★</span>
@@ -252,7 +278,7 @@
     <button class="btn btn-buy" id="buy">ซื้อเลย</button>
   </div>
 
-  <!-- Bottom Sheet (1 แท่ง 1 สี) -->
+  <!-- Bottom Sheet -->
   <div class="overlay" id="sheet">
     <div class="sheet">
       <i class="fa-solid fa-xmark close" id="close"></i>
@@ -357,9 +383,9 @@
     closeBtn.onclick=()=>sheet.style.display='none';
     sheet.addEventListener('click',e=>{ if(e.target===sheet) sheet.style.display='none'; });
 
-    /* ===== LINE track ===== */
+    /* ===== LINE track (ปุ่มกลาง + ล่าง) ===== */
     function trackLine(){ if(window.fbq) fbq('track','Contact'); if(window.ttq) ttq.track('Contact'); }
-    document.getElementById('lineTop').addEventListener('click',trackLine);
+    document.getElementById('lineMid').addEventListener('click',trackLine);
     document.getElementById('lineBottom').addEventListener('click',trackLine);
 
     /* ===== เลือกสีผ่านปุ่ม/ภาพ ===== */
