@@ -23,8 +23,7 @@
   <script>
     !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=
     ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie"];
-    ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
-    for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+    ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
     ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";
       ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};
       ttq._o[e]=n||{};var o=d.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;
@@ -35,48 +34,50 @@
 
   <!-- Google Ads (gtag) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17035064059"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);} gtag('js',new Date()); gtag('config','AW-17035064059');</script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date()); gtag('config','AW-17035064059');
+  </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
-
     /* === LIVE BUYERS (คนที่กำลังซื้อ) === */
-.live-buyer {
-  position: fixed;
-  left: 12px;
-  bottom: 74px; /* เหนือ sticky bar */
-  display: none;
-  align-items: center;
-  gap: 10px;
-  background: #ffffff;
-  border: 1px solid #eee;
-  box-shadow: 0 8px 26px rgba(0,0,0,.12);
-  border-radius: 14px;
-  padding: 10px 12px;
-  z-index: 70;
-  animation: lb-fade-in .18s ease-out;
-}
-.live-buyer.show { display: flex; }
-@keyframes lb-fade-in {
-  from { transform: translateY(8px); opacity: .2; }
-  to   { transform: translateY(0);   opacity: 1; }
-}
-.lb-avatar{
-  width:36px;height:36px;border-radius:50%;
-  background: linear-gradient(135deg,#ff7e5f,#feb47b);
-  color:#fff;display:flex;align-items:center;justify-content:center;
-  font-weight:800;
-}
-.lb-body{display:flex;flex-direction:column;line-height:1.25}
-.lb-title{font-weight:800;font-size:.98rem;color:#111}
-.lb-sub{font-size:.9rem;color:#666}
-.lb-dot{width:8px;height:8px;border-radius:50%;background:#10b981;margin-right:6px;box-shadow:0 0 0 3px #e7fff6}
-.lb-row{display:flex;align-items:center}
-@media (max-width:420px){
-  .live-buyer { left: 8px; right: 8px; }
-}
+    .live-buyer {
+      position: fixed;
+      left: 12px;
+      bottom: 74px; /* เหนือ sticky bar */
+      display: none;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      border: 1px solid #eee;
+      box-shadow: 0 8px 26px rgba(0,0,0,.12);
+      border-radius: 14px;
+      padding: 10px 12px;
+      z-index: 70;
+      animation: lb-fade-in .18s ease-out;
+    }
+    .live-buyer.show { display: flex; }
+    @keyframes lb-fade-in {
+      from { transform: translateY(8px); opacity: .2; }
+      to   { transform: translateY(0);   opacity: 1; }
+    }
+    .lb-avatar{
+      width:36px;height:36px;border-radius:50%;
+      background: linear-gradient(135deg,#ff7e5f,#feb47b);
+      color:#fff;display:flex;align-items:center;justify-content:center;
+      font-weight:800;
+    }
+    .lb-body{display:flex;flex-direction:column;line-height:1.25}
+    .lb-title{font-weight:800;font-size:.98rem;color:#111}
+    .lb-sub{font-size:.9rem;color:#666}
+    .lb-dot{width:8px;height:8px;border-radius:50%;background:#10b981;margin-right:6px;box-shadow:0 0 0 3px #e7fff6}
+    .lb-row{display:flex;align-items:center}
+    @media (max-width:420px){
+      .live-buyer { left: 8px; right: 8px; }
+    }
 
     :root{--primary:#ee4d2d;--brand:#e94057;--bg:#f6f7fb;--card:#fff;--line:#eee;--text:#161823;--muted:#888;--shadow:0 2px 18px rgba(0,0,0,.06);--r:14px}
     *{box-sizing:border-box}
@@ -89,8 +90,6 @@
     .logo{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#ff7e5f,#feb47b);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
 
     .hero img{width:100%;display:block}
-    .voucher-row{display:flex;gap:8px;padding:10px 14px;background:#fff}
-    .voucher{flex:1;border:1px dashed var(--primary);border-radius:10px;padding:8px 10px;font-weight:700;color:var(--primary);text-align:center}
 
     .card{background:var(--card);border-radius:0 0 var(--r) var(--r);box-shadow:var(--shadow);margin-bottom:10px}
     .pad{padding:14px}
@@ -104,15 +103,14 @@
 
     .options{display:flex;gap:9px;flex-wrap:wrap}
     .chip{
-  border:1.8px solid #eee;
-  background:#fff;
-  border-radius:10px;
-  padding:12px 16px;
-  font-weight:700;
-  font-size:1.08rem;   /* ✅ เพิ่มขนาดตัวอักษร */
-  cursor:pointer;
-}
-
+      border:1.8px solid #eee;
+      background:#fff;
+      border-radius:10px;
+      padding:12px 16px;
+      font-weight:700;
+      font-size:1.08rem;   /* ขยายขนาดตัวอักษรปุ่มสี */
+      cursor:pointer;
+    }
     .chip.selected{border-color:var(--primary);background:#ffe7df;color:#c23a1a;box-shadow:0 1px 6px #ffbfab66}
 
     .choose{background:#ee4d2d;color:#fff;border:none;border-radius:10px;padding:10px 16px;font-weight:800;cursor:pointer}
@@ -147,20 +145,20 @@
     @media (max-width:600px){.rev-imgs img{width:90vw}}
   </style>
 </head>
-  <!-- LIVE BUYERS WIDGET -->
-<div class="live-buyer" id="liveBuyer">
-  <div class="lb-avatar" id="lbAvatar">MB</div>
-  <div class="lb-body">
-    <div class="lb-row">
-      <span class="lb-dot"></span>
-      <div class="lb-title" id="lbTitle">กำลังสั่งซื้อ…</div>
-    </div>
-    <div class="lb-sub" id="lbSub">—</div>
-  </div>
-</div>
-
 <body>
-  <!-- Header (ปุ่มไลน์บนถูกย้ายออก) -->
+  <!-- LIVE BUYERS WIDGET (ย้ายเข้ามาใน body) -->
+  <div class="live-buyer" id="liveBuyer">
+    <div class="lb-avatar" id="lbAvatar">MB</div>
+    <div class="lb-body">
+      <div class="lb-row">
+        <span class="lb-dot"></span>
+        <div class="lb-title" id="lbTitle">กำลังสั่งซื้อ…</div>
+      </div>
+      <div class="lb-sub" id="lbSub">—</div>
+    </div>
+  </div>
+
+  <!-- Header -->
   <header>
     <div class="topbar">
       <div class="left">
@@ -179,7 +177,7 @@
     <img src="S__73482282_0.png" alt="Magic Glow Lipstick M-BLITHE">
   </section>
 
-  <!-- บทนำสินค้า (บิ้วใต้ภาพแรกๆ) -->
+  <!-- บทนำสินค้า -->
   <section class="card">
     <div class="pad">
       <h2 style="margin:0 0 8px 0;font-size:1.1rem">💖 Magic Glow Lipstick — ปากฉ่ำโกลว์ สุขภาพดีในแท่งเดียว</h2>
@@ -196,7 +194,7 @@
     </div>
   </section>
 
-  <!-- ปุ่มแอดไลน์ (ย้ายมาไว้ช่วงกลาง) -->
+  <!-- ปุ่มแอดไลน์กลางหน้า -->
   <section class="card">
     <div class="pad" style="display:flex;gap:10px;align-items:center;justify-content:space-between">
       <div>
@@ -210,7 +208,7 @@
     </div>
   </section>
 
-  <!-- ราคา + ชิปเลือกสี (บังคับ 1 สี) -->
+  <!-- ราคา + ชิปเลือกสี -->
   <section class="card">
     <div class="pad">
       <div style="display:flex;align-items:flex-end"><div class="price">฿199</div><div class="price-old">฿259</div></div>
@@ -222,7 +220,7 @@
     </div>
   </section>
 
-  <!-- Showcase สี + ปุ่มเลือกสีนี้ -->
+  <!-- Showcase สี -->
   <section class="card" id="shadeShowcase">
     <div class="pad">
       <h3 style="margin:0 0 12px 0;font-size:1.1rem;font-weight:700;">✨ เลือกเฉดสี Magic Glow ที่ใช่สำหรับคุณ</h3>
@@ -269,7 +267,7 @@
 
       <!-- 836 -->
       <div style="text-align:center;margin-bottom:10px;">
-        <img src="836.jpg" alt="836 Lunar Lust" data-shade="836" class="shade-img" style="width:90%;max-width:330px;border-radius:14px;cursor:pointer%;">
+        <img src="836.jpg" alt="836 Lunar Lust" data-shade="836" class="shade-img" style="width:90%;max-width:330px;border-radius:14px;cursor:pointer;">
         <div style="font-size:1.2rem;font-weight:700;color:#e94057;margin-top:8px;">836 Lunar Lust</div>
         <p style="color:#666;margin:6px 0 10px 0;font-size:1rem;">🍑 พีชธรรมชาติ ทาแล้วปากดูเด็กลง 5 ปี สวยแบบ no makeup look</p>
         <button class="choose" data-choose="836">เลือกสีนี้</button>
@@ -291,7 +289,6 @@
         <div style="color:#555">เนื้อ สี สวย แมท แน่นดีค่ะ ส่งเร็วมากค่ะ <b>Item: 831</b></div>
         <div class="rev-imgs">
           <img src="photo_2_2025-11-06_20-14-54.jpg" alt="รีวิว 1-1">
-        
         </div>
       </div>
 
@@ -304,11 +301,10 @@
         <div style="color:#555">ชอบลิปแบบนี้เลย ส่งเร็ว ขอบคุณค่ะ <b>Item: 835</b></div>
         <div class="rev-imgs">
           <img src="photo_1_2025-11-06_20-14-54.jpg" alt="รีวิว 2-1">
-        
         </div>
       </div>
 
-       <div class="review">
+      <div class="review">
         <div class="review-h">
           <span class="review-stars">★★★★★</span>
           <span class="review-name">MD**</span>
@@ -316,11 +312,9 @@
         </div>
         <div style="color:#555">ชอบลิปแบบนี้เลย ส่งเร็วมาก ขอบคุณค่ะ <b>Item: 835</b></div>
         <div class="rev-imgs">
-          <img src="photo_3_2025-11-06_20-14-54.jpg" alt="รีวิว 2-1">
-        
+          <img src="photo_3_2025-11-06_20-14-54.jpg" alt="รีวิว 3-1">
         </div>
       </div>
-      
     </div>
   </section>
 
@@ -328,7 +322,6 @@
   <section class="card">
     <div class="pad" style="text-align:center">
       <h3 style="margin:0 0 10px 0;"><i class="fa-solid fa-truck-fast"></i> ส่งของทุกวัน จันทร์–เสาร์</h3>
-     
       <video autoplay muted loop playsinline controls style="max-width:340px;width:100%;border-radius:13px;box-shadow:0 2px 10px #0001;">
         <source src="SaveTik.co_7516781232450014482.mp4" type="video/mp4">ไม่สามารถเล่นวิดีโอได้
       </video>
@@ -447,7 +440,7 @@
     closeBtn.onclick=()=>sheet.style.display='none';
     sheet.addEventListener('click',e=>{ if(e.target===sheet) sheet.style.display='none'; });
 
-    /* ===== LINE track (ปุ่มกลาง + ล่าง) ===== */
+    /* ===== LINE track ===== */
     function trackLine(){ if(window.fbq) fbq('track','Contact'); if(window.ttq) ttq.track('Contact'); }
     document.getElementById('lineMid').addEventListener('click',trackLine);
     document.getElementById('lineBottom').addEventListener('click',trackLine);
@@ -468,6 +461,51 @@
     document.querySelectorAll('.shade-img').forEach(img=>{
       img.addEventListener('click', ()=> openSheetWithShade(img.getAttribute('data-shade')));
     });
+
+    /* ===== LIVE BUYERS ===== */
+    const LB_LOCATIONS = ["กรุงเทพฯ","เชียงใหม่","สมุทรปราการ","ชลบุรี","นนทบุรี","ขอนแก่น","นครปฐม","ภูเก็ต","ปทุมธานี","นครศรีธรรมราช"];
+    const LB_NAMES = ["นลิน","แพร","มายด์","เมย์","พิม","กวาง","ออย","แยม","ใบเฟิร์น","สายป่าน","ฟ้า","พีช","เจน","มิ้น","พลอย","บิวตี้","จูน","แตง"];
+    const LB_SHADES = SHADES.map(s=>({id:s.id, text:s.text}));
+    const lbEl = document.getElementById('liveBuyer');
+    const lbTitle = document.getElementById('lbTitle');
+    const lbSub = document.getElementById('lbSub');
+    const lbAvatar = document.getElementById('lbAvatar');
+    function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+    function maskName(name){
+      if(!name || typeof name !== 'string') return rand(LB_NAMES) + '*';
+      const n = name.trim(); if(n.length<=1) return n + '**'; return n.slice(0,1) + '***';
+    }
+    function showLiveBuyer({name, shadeText, location}){
+      lbAvatar.textContent = (name||'M')[0]?.toUpperCase() || 'M';
+      lbTitle.textContent = `${maskName(name)} กำลังสั่งซื้อ`;
+      lbSub.textContent = `${shadeText} · ${location}`;
+      lbEl.classList.add('show');
+      clearTimeout(window.__lbHideT);
+      window.__lbHideT = setTimeout(()=> lbEl.classList.remove('show'), 6500);
+    }
+    function cycleLiveBuyer(){
+      const shade = rand(LB_SHADES);
+      showLiveBuyer({ name: rand(LB_NAMES), shadeText: shade.text, location: rand(LB_LOCATIONS) });
+      const nextIn = 18000 + Math.floor(Math.random()*10000); // 18–28s
+      clearTimeout(window.__lbLoopT);
+      window.__lbLoopT = setTimeout(cycleLiveBuyer, nextIn);
+    }
+    window.addEventListener('load', ()=>{ setTimeout(cycleLiveBuyer, 4000); });
+    document.querySelectorAll('[data-choose]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.getAttribute('data-choose');
+        const obj = LB_SHADES.find(s=>s.id===id) || LB_SHADES[0];
+        showLiveBuyer({name: rand(LB_NAMES), shadeText: obj.text, location: rand(LB_LOCATIONS)});
+      });
+    });
+    function __lbOrderSuccessHook(){
+      try {
+        const sel = document.querySelector('.options .chip.selected');
+        const shadeText = sel ? sel.textContent : (LB_SHADES[0].text);
+        const name = (document.getElementById('name')?.value || '').trim();
+        showLiveBuyer({name, shadeText, location: rand(LB_LOCATIONS)});
+      } catch(_){}
+    }
 
     /* ===== Submit to Google Sheet (5 ฟิลด์) ===== */
     async function sendOrder(e){
@@ -495,6 +533,10 @@
           if(window.fbq) fbq('track','Purchase',{value:PRICE,currency:'THB'});
           if(window.ttq) ttq.track('CompletePayment',{value:PRICE,currency:'THB'});
           if(window.gtag) gtag('event','conversion',{'send_to':'AW-17035064059/53zPCNHE2OIaEPvl-bo_','value':PRICE,'currency':'THB'});
+
+          /* 🔔 แสดงบับเบิล "กำลังสั่งซื้อ" จากออเดอร์จริง */
+          __lbOrderSuccessHook();
+
         }else{
           alert('ส่งไม่สำเร็จ กรุณาลองใหม่ หรือติดต่อทางไลน์');
         }
@@ -503,101 +545,6 @@
         console.error(err); alert('มีข้อผิดพลาดในการส่งข้อมูล: '+(err.message||err));
       }
     }
-
-    <script>
-/* ================== LIVE BUYERS ================== */
-/* รายชื่อสุ่ม + จังหวัด สำหรับโชว์ social proof */
-const LB_LOCATIONS = ["กรุงเทพฯ","เชียงใหม่","สมุทรปราการ","ชลบุรี","นนทบุรี","ขอนแก่น","นครปฐม","ภูเก็ต","ปทุมธานี","นครศรีธรรมราช"];
-const LB_NAMES = ["นลิน","แพร","มายด์","เมย์","พิม","กวาง","ออย","แยม","ใบเฟิร์น","สายป่าน","ฟ้า","พีช","เจน","มิ้น","พลอย","บิวตี้","จูน","แตง"];
-const LB_SHADES = [
-  {id:'831', text:'831 Bewitching Berry (เบอร์รี่)'},
-  {id:'832', text:'832 Mystic Merlot (ไวน์แดง)'},
-  {id:'833', text:'833 Moon Beam (ชมพูอ่อน)'},
-  {id:'834', text:'834 Forbidden Potion (ชมพูสด)'},
-  {id:'835', text:'835 Crimson Charm (แดงอมชมพู)'},
-  {id:'836', text:'836 Lunar Lust (พีชธรรมชาติ)'},
-];
-
-const lbEl = document.getElementById('liveBuyer');
-const lbTitle = document.getElementById('lbTitle');
-const lbSub = document.getElementById('lbSub');
-const lbAvatar = document.getElementById('lbAvatar');
-
-function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-function maskName(name){
-  // ตัดให้เหลือ อักษรแรก + ***
-  if(!name || typeof name !== 'string') return rand(LB_NAMES) + '*';
-  const n = name.trim();
-  if(n.length<=1) return n + '**';
-  return n.slice(0,1) + '***';
-}
-function showLiveBuyer({name, shadeText, location}){
-  lbAvatar.textContent = (name||'M')[0]?.toUpperCase() || 'M';
-  lbTitle.textContent = `${maskName(name)} กำลังสั่งซื้อ`;
-  lbSub.textContent = `${shadeText} · ${location}`;
-  lbEl.classList.add('show');
-
-  // ซ่อนอัตโนมัติใน 6.5 วินาที
-  clearTimeout(window.__lbHideT);
-  window.__lbHideT = setTimeout(()=> lbEl.classList.remove('show'), 6500);
-}
-
-// วนแสดงอัตโนมัติทุก 18–28 วินาที แบบสุ่ม
-function cycleLiveBuyer(){
-  const shade = rand(LB_SHADES);
-  showLiveBuyer({
-    name: rand(LB_NAMES),
-    shadeText: shade.text,
-    location: rand(LB_LOCATIONS),
-  });
-  const nextIn = 18000 + Math.floor(Math.random()*10000); // 18–28s
-  clearTimeout(window.__lbLoopT);
-  window.__lbLoopT = setTimeout(cycleLiveBuyer, nextIn);
-}
-
-// เริ่มทำงานหลังโหลดหน้า
-window.addEventListener('load', ()=>{
-  setTimeout(cycleLiveBuyer, 4000);
-});
-
-// ===== เชื่อมกับ “อีเวนต์จริง” ของคุณ =====
-// 1) ตอนกดปุ่มเลือกสี / เปิดเช็กเอาต์
-document.querySelectorAll('[data-choose]').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const id = btn.getAttribute('data-choose');
-    const obj = LB_SHADES.find(s=>s.id===id) || LB_SHADES[0];
-    showLiveBuyer({name: rand(LB_NAMES), shadeText: obj.text, location: rand(LB_LOCATIONS)});
-  });
-});
-
-// 2) ตอน “สั่งซื้อสำเร็จ” — ผูกกับสาขาที่คุณส่งฟอร์มสำเร็จอยู่แล้ว
-//   อยู่ในฟังก์ชัน sendOrder(e) สาขา if(ok){ ... } ให้เพิ่มบรรทัดด้านล่างเข้าไป
-//   (เพิ่มแค่ 1 บรรทัดก็พอ)
-function __lbOrderSuccessHook(){
-  try {
-    const sel = document.querySelector('.options .chip.selected');
-    const shadeText = sel ? sel.textContent : (LB_SHADES[0].text);
-    const name = (document.getElementById('name')?.value || '').trim();
-    showLiveBuyer({name, shadeText, location: rand(LB_LOCATIONS)});
-  } catch(_){}
-}
-
-/* ====== TIP: เรียก __lbOrderSuccessHook() หลังส่งฟอร์มสำเร็จ ======
-   ในโค้ดเดิมคุณมี:
-
-   if(ok){
-      sheet.style.display='none';
-      document.getElementById('orderForm').reset();
-      selectShade(SHADES[0].id); updateProductEmbed();
-      toast.style.display='block'; setTimeout(()=>toast.style.display='none',2200);
-
-      if(window.fbq) fbq('track','Purchase',{value:PRICE,currency:'THB'});
-
-      // >>> เพิ่มบรรทัดนี้ <<<
-      __lbOrderSuccessHook();
-   }
-*/
-</script>
   </script>
 </body>
 </html>
