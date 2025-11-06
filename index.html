@@ -41,6 +41,43 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
+
+    /* === LIVE BUYERS (คนที่กำลังซื้อ) === */
+.live-buyer {
+  position: fixed;
+  left: 12px;
+  bottom: 74px; /* เหนือ sticky bar */
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 26px rgba(0,0,0,.12);
+  border-radius: 14px;
+  padding: 10px 12px;
+  z-index: 70;
+  animation: lb-fade-in .18s ease-out;
+}
+.live-buyer.show { display: flex; }
+@keyframes lb-fade-in {
+  from { transform: translateY(8px); opacity: .2; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+.lb-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background: linear-gradient(135deg,#ff7e5f,#feb47b);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-weight:800;
+}
+.lb-body{display:flex;flex-direction:column;line-height:1.25}
+.lb-title{font-weight:800;font-size:.98rem;color:#111}
+.lb-sub{font-size:.9rem;color:#666}
+.lb-dot{width:8px;height:8px;border-radius:50%;background:#10b981;margin-right:6px;box-shadow:0 0 0 3px #e7fff6}
+.lb-row{display:flex;align-items:center}
+@media (max-width:420px){
+  .live-buyer { left: 8px; right: 8px; }
+}
+
     :root{--primary:#ee4d2d;--brand:#e94057;--bg:#f6f7fb;--card:#fff;--line:#eee;--text:#161823;--muted:#888;--shadow:0 2px 18px rgba(0,0,0,.06);--r:14px}
     *{box-sizing:border-box}
     body{font-family:'Kanit',sans-serif;margin:0;background:var(--bg);color:var(--text);padding-bottom:76px}
@@ -110,6 +147,18 @@
     @media (max-width:600px){.rev-imgs img{width:90vw}}
   </style>
 </head>
+  <!-- LIVE BUYERS WIDGET -->
+<div class="live-buyer" id="liveBuyer">
+  <div class="lb-avatar" id="lbAvatar">MB</div>
+  <div class="lb-body">
+    <div class="lb-row">
+      <span class="lb-dot"></span>
+      <div class="lb-title" id="lbTitle">กำลังสั่งซื้อ…</div>
+    </div>
+    <div class="lb-sub" id="lbSub">—</div>
+  </div>
+</div>
+
 <body>
   <!-- Header (ปุ่มไลน์บนถูกย้ายออก) -->
   <header>
@@ -454,6 +503,100 @@
         console.error(err); alert('มีข้อผิดพลาดในการส่งข้อมูล: '+(err.message||err));
       }
     }
-  </script>
+
+    <script>
+/* ================== LIVE BUYERS ================== */
+/* รายชื่อสุ่ม + จังหวัด สำหรับโชว์ social proof */
+const LB_LOCATIONS = ["กรุงเทพฯ","เชียงใหม่","สมุทรปราการ","ชลบุรี","นนทบุรี","ขอนแก่น","นครปฐม","ภูเก็ต","ปทุมธานี","นครศรีธรรมราช"];
+const LB_NAMES = ["นลิน","แพร","มายด์","เมย์","พิม","กวาง","ออย","แยม","ใบเฟิร์น","สายป่าน","ฟ้า","พีช","เจน","มิ้น","พลอย","บิวตี้","จูน","แตง"];
+const LB_SHADES = [
+  {id:'831', text:'831 Bewitching Berry (เบอร์รี่)'},
+  {id:'832', text:'832 Mystic Merlot (ไวน์แดง)'},
+  {id:'833', text:'833 Moon Beam (ชมพูอ่อน)'},
+  {id:'834', text:'834 Forbidden Potion (ชมพูสด)'},
+  {id:'835', text:'835 Crimson Charm (แดงอมชมพู)'},
+  {id:'836', text:'836 Lunar Lust (พีชธรรมชาติ)'},
+];
+
+const lbEl = document.getElementById('liveBuyer');
+const lbTitle = document.getElementById('lbTitle');
+const lbSub = document.getElementById('lbSub');
+const lbAvatar = document.getElementById('lbAvatar');
+
+function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function maskName(name){
+  // ตัดให้เหลือ อักษรแรก + ***
+  if(!name || typeof name !== 'string') return rand(LB_NAMES) + '*';
+  const n = name.trim();
+  if(n.length<=1) return n + '**';
+  return n.slice(0,1) + '***';
+}
+function showLiveBuyer({name, shadeText, location}){
+  lbAvatar.textContent = (name||'M')[0]?.toUpperCase() || 'M';
+  lbTitle.textContent = `${maskName(name)} กำลังสั่งซื้อ`;
+  lbSub.textContent = `${shadeText} · ${location}`;
+  lbEl.classList.add('show');
+
+  // ซ่อนอัตโนมัติใน 6.5 วินาที
+  clearTimeout(window.__lbHideT);
+  window.__lbHideT = setTimeout(()=> lbEl.classList.remove('show'), 6500);
+}
+
+// วนแสดงอัตโนมัติทุก 18–28 วินาที แบบสุ่ม
+function cycleLiveBuyer(){
+  const shade = rand(LB_SHADES);
+  showLiveBuyer({
+    name: rand(LB_NAMES),
+    shadeText: shade.text,
+    location: rand(LB_LOCATIONS),
+  });
+  const nextIn = 18000 + Math.floor(Math.random()*10000); // 18–28s
+  clearTimeout(window.__lbLoopT);
+  window.__lbLoopT = setTimeout(cycleLiveBuyer, nextIn);
+}
+
+// เริ่มทำงานหลังโหลดหน้า
+window.addEventListener('load', ()=>{
+  setTimeout(cycleLiveBuyer, 4000);
+});
+
+// ===== เชื่อมกับ “อีเวนต์จริง” ของคุณ =====
+// 1) ตอนกดปุ่มเลือกสี / เปิดเช็กเอาต์
+document.querySelectorAll('[data-choose]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const id = btn.getAttribute('data-choose');
+    const obj = LB_SHADES.find(s=>s.id===id) || LB_SHADES[0];
+    showLiveBuyer({name: rand(LB_NAMES), shadeText: obj.text, location: rand(LB_LOCATIONS)});
+  });
+});
+
+// 2) ตอน “สั่งซื้อสำเร็จ” — ผูกกับสาขาที่คุณส่งฟอร์มสำเร็จอยู่แล้ว
+//   อยู่ในฟังก์ชัน sendOrder(e) สาขา if(ok){ ... } ให้เพิ่มบรรทัดด้านล่างเข้าไป
+//   (เพิ่มแค่ 1 บรรทัดก็พอ)
+function __lbOrderSuccessHook(){
+  try {
+    const sel = document.querySelector('.options .chip.selected');
+    const shadeText = sel ? sel.textContent : (LB_SHADES[0].text);
+    const name = (document.getElementById('name')?.value || '').trim();
+    showLiveBuyer({name, shadeText, location: rand(LB_LOCATIONS)});
+  } catch(_){}
+}
+
+/* ====== TIP: เรียก __lbOrderSuccessHook() หลังส่งฟอร์มสำเร็จ ======
+   ในโค้ดเดิมคุณมี:
+
+   if(ok){
+      sheet.style.display='none';
+      document.getElementById('orderForm').reset();
+      selectShade(SHADES[0].id); updateProductEmbed();
+      toast.style.display='block'; setTimeout(()=>toast.style.display='none',2200);
+
+      if(window.fbq) fbq('track','Purchase',{value:PRICE,currency:'THB'});
+
+      // >>> เพิ่มบรรทัดนี้ <<<
+      __lbOrderSuccessHook();
+   }
+*/
+</script>
 </body>
 </html>
