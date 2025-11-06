@@ -53,26 +53,23 @@
 
   <style>
     :root{
-      --primary:#ee4d2d; /* Shopee vibe สีปุ่มซื้อ */
-      --accent:#ffb300;
+      --primary:#ee4d2d; /* ปุ่มซื้อ vibe Shopee */
       --brand:#e94057;   /* โทนแบรนด์ M-BLITHE */
-      --bg:#f6f7fb;
-      --card:#fff;
-      --line:#eee;
-      --text:#161823;
-      --muted:#888;
+      --bg:#f6f7fb; --card:#fff; --line:#eee; --text:#161823; --muted:#888;
       --shadow:0 2px 18px rgba(0,0,0,.06);
       --radius:14px;
     }
     *{box-sizing:border-box}
     body{font-family:'Kanit',sans-serif;margin:0;background:var(--bg);color:var(--text);padding-bottom:76px}
     header{background:#fff;box-shadow:var(--shadow);position:sticky;top:0;z-index:50}
-    .topbar{display:flex;align-items:center;gap:10px;padding:10px 14px}
+    .topbar{display:flex;align-items:center;gap:10px;padding:10px 14px;justify-content:space-between}
+    .leftbox{display:flex;align-items:center;gap:10px}
     .shop-logo{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#ff7e5f,#feb47b);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
     .shop-name{font-weight:700}
-    .trust{background:#fff3; padding:10px 0;text-align:center;color:#fff}
+    .line-btn-top{display:inline-flex;align-items:center;gap:8px;background:#06c755;color:#fff;text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:800;box-shadow:0 2px 10px rgba(6,199,85,.12)}
     .hero{position:relative;background:linear-gradient(135deg,#ffede6,#fff);padding-bottom:10px}
-    .hero img{width:100%;display:block}
+    .gallery{border-bottom:1px solid #f0f0f0}
+    .gallery img{width:100%;display:block}
     .voucher-row{display:flex;gap:8px;padding:10px 14px;background:#fff}
     .voucher{flex:1;border:1px dashed var(--primary);border-radius:10px;padding:8px 10px;font-weight:700;color:var(--primary);text-align:center}
     .card{background:var(--card);border-radius:0 0 var(--radius) var(--radius);box-shadow:var(--shadow);margin:0 0 10px 0}
@@ -85,8 +82,6 @@
     .rating-line{display:flex;align-items:center;gap:10px;color:#555;margin-top:8px;font-size:.98rem}
     .stars{color:#f9d71c}
     .sold{color:#666}
-    .gallery{border-bottom:1px solid #f0f0f0}
-    .gallery img{width:100%;display:block}
     .options{display:flex;gap:9px;flex-wrap:wrap}
     .chip{border:1.8px solid #eee;background:#fff;border-radius:10px;padding:8px 12px;font-weight:700;cursor:pointer;transition:.15s}
     .chip.selected{border-color:var(--primary);background:#ffe7df;color:#c23a1a;box-shadow:0 1px 6px #ffbfab66}
@@ -97,13 +92,13 @@
     .benefit{display:flex;align-items:center;gap:10px;margin:10px 0;font-size:1.02rem}
     .benefit i{color:var(--primary)}
     .divider{height:1px;background:#f0f0f0;margin:12px 0}
-    .sticky{position:fixed;left:0;right:0;bottom:0;display:flex;height:62px;background:#fff;border-top:1px solid #eee;box-shadow:0 -2px 14px rgba(0,0,0,.08);z-index:60}
-    .btn{display:flex;align-items:center;justify-content:center;font-weight:800;border:none;cursor:pointer}
-    .btn-buy{width:100%;background:var(--primary);color:#fff;font-size:1.14rem}
-    .tag-row{display:flex;gap:8px;flex-wrap:wrap}
-    .tag{background:#fff6f7;color:var(--brand);font-weight:700;border-radius:7px;padding:5px 10px;border:1px solid #ffd1da}
     .thumb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
     .thumb-grid img{width:100%;border-radius:12px;box-shadow:0 2px 8px #0001}
+    /* Sticky footer */
+    .sticky{position:fixed;left:0;right:0;bottom:0;display:flex;height:62px;background:#fff;border-top:1px solid #eee;box-shadow:0 -2px 14px rgba(0,0,0,.08);z-index:60}
+    .btn{display:flex;align-items:center;justify-content:center;font-weight:800;border:none;cursor:pointer}
+    .btn-line{width:40%;background:#06c755;color:#fff;text-decoration:none}
+    .btn-buy{width:60%;background:var(--primary);color:#fff;font-size:1.14rem}
     /* Modal Sheet */
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:80}
     .sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:18px 18px 0 0;box-shadow:var(--shadow);padding:16px;animation:slideUp .18s;max-height:93vh;overflow:auto}
@@ -112,13 +107,13 @@
     .sheet-header{display:flex;gap:12px;align-items:center;border-bottom:1px solid #f0f0f0;padding-bottom:10px;margin-bottom:10px}
     .sheet-header img{width:64px;height:64px;border-radius:10px;border:1px solid #eee;object-fit:cover}
     .form label{display:block;font-weight:700;margin:10px 0 6px}
-    .form input,.form textarea, .form select{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;font-family:'Kanit',sans-serif;font-size:1rem}
+    .form input,.form textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;font-family:'Kanit',sans-serif;font-size:1rem}
     .submit{width:100%;margin-top:12px;background:var(--primary);color:#fff;border:none;border-radius:10px;padding:14px;font-size:1.06rem;font-weight:800;cursor:pointer}
     .submit:disabled{background:#ddd;cursor:not-allowed}
     .success{display:none;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border-radius:16px;padding:26px 36px;box-shadow:var(--shadow);z-index:200;text-align:center}
     .success i{font-size:2.6rem;color:var(--brand)}
     .pdpa{font-size:12px;color:#666;margin-top:6px}
-    @media(max-width:600px){.pad{padding:13px 10px}.btn-buy{font-size:1.02rem}}
+    @media(max-width:600px){.pad{padding:13px 10px}.btn-buy,.btn-line{font-size:1.02rem}}
   </style>
 </head>
 <body>
@@ -126,18 +121,22 @@
   <!-- Header -->
   <header>
     <div class="topbar">
-      <div class="shop-logo">MB</div>
-      <div>
-        <div class="shop-name">M-BLITHE Official</div>
-        <div style="font-size:.92rem;color:#666">ของแท้ 100% • ส่งฟรี • เก็บเงินปลายทาง</div>
+      <div class="leftbox">
+        <div class="shop-logo">MB</div>
+        <div>
+          <div class="shop-name">M-BLITHE Official</div>
+          <div style="font-size:.92rem;color:#666">ของแท้ 100% • ส่งฟรี • เก็บเงินปลายทาง</div>
+        </div>
       </div>
+      <a href="https://lin.ee/wKelfsp" target="_blank" class="line-btn-top" id="lineBtnTop">
+        <i class="fa-brands fa-line"></i> แอดไลน์รับโปร
+      </a>
     </div>
   </header>
 
   <!-- Hero / Gallery -->
   <section class="hero">
     <div class="gallery">
-      <!-- ภาพ PNG พื้นหลังโปร่งใส -->
       <img src="magicglow_hero.png" alt="M-BLITHE Magic Glow Lipstick ปากชุ่มชื้น ไม่แห้งแตก">
     </div>
     <div class="voucher-row">
@@ -186,19 +185,13 @@
       <div class="benefit"><i class="fa-solid fa-shield-heart"></i> สินค้าแท้ 100% ผิดสีเปลี่ยนได้</div>
       <div class="benefit"><i class="fa-solid fa-truck-fast"></i> ส่งทุกวันจันทร์–เสาร์ แพ็คอย่างดี</div>
       <div style="font-size:.9rem;color:#999">*ผลลัพธ์ขึ้นกับแต่ละบุคคล</div>
-
-      <div class="tag-row" style="margin-top:10px">
-        <span class="tag">💄 Magic Glow เนื้อฉ่ำ สุขภาพดี</span>
-        <span class="tag">🌿 อ่อนโยน ใช้ได้ทุกวัน</span>
-        <span class="tag">✨ ใช้เดี่ยว/ทาทับก็สวย</span>
-      </div>
     </div>
   </section>
 
   <!-- เฉดสีแบบโชว์ภาพ (SEO) -->
   <section class="card">
     <div class="pad">
-      <h2 style="font-size:1.06rem;margin:0 0 10px 0">✨ เลือกเฉดที่ใช่ (Magic Glow 6 สี)</h2>
+      <h2 style="font-size:1.02rem;margin:0 0 8px 0">✨ เลือกเฉดที่ใช่ (Magic Glow 6 สี)</h2>
       <div class="thumb-grid">
         <img src="831.jpg" alt="831 Bewitching Berry - ลิปสติกสีเบอร์รี่ ปากชมพูอมแดง สุขภาพดี Magic Glow M-BLITHE">
         <img src="832.jpg" alt="832 Mystic Merlot - ลิปสติกสีไวน์แดง บำรุงริมฝีปากนุ่มชุ่มชื้น ไม่แห้งแตก">
@@ -210,20 +203,12 @@
     </div>
   </section>
 
-  <!-- วิดีโอรีวิว (ถ้ามีไฟล์) -->
-  <section class="card">
-    <div class="pad" style="text-align:center">
-      <video autoplay muted loop playsinline controls style="max-width:340px;width:100%;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.08)">
-        <source src="magicglow_review.mp4" type="video/mp4">
-        ไม่สามารถเล่นวิดีโอนี้ได้
-      </video>
-      <div style="color:#ee4d2d;margin-top:8px;font-weight:700">ส่งฟรีทั่วประเทศ • เก็บเงินปลายทาง</div>
-    </div>
-  </section>
-
-  <!-- Sticky Buy -->
+  <!-- Sticky footer -->
   <div class="sticky">
-    <button class="btn btn-buy" id="buyBtn">สั่งซื้อเก็บเงินปลายทาง</button>
+    <a href="https://lin.ee/wKelfsp" target="_blank" class="btn btn-line" id="lineBtnBottom">
+      <i class="fa-brands fa-line" style="margin-right:8px"></i>แอดไลน์รับโปร
+    </a>
+    <button class="btn btn-buy" id="buyBtn">ซื้อเลย</button>
   </div>
 
   <!-- Bottom Sheet -->
@@ -274,7 +259,7 @@
 
         <div class="pdpa">ข้อมูลของคุณใช้เพื่อยืนยันคำสั่งซื้อและจัดส่งสินค้าเท่านั้น และจะถูกเก็บรักษาตามมาตรการ PDPA ของเรา</div>
 
-        <button class="submit" id="submitBtn" type="submit">ยืนยันสั่งซื้อ (COD)</button>
+        <button class="submit" id="submitBtn" type="submit">ยืนยันสั่งซื้อ</button>
       </form>
     </div>
   </div>
@@ -287,10 +272,10 @@
 
   <script>
     // ===== CONFIG =====
-    // Apps Script ที่เชื่อม Google Sheets + Telegram (ใช้ตัวจริงของคุณตามสเปก)
+    // ใช้ตัวจริงที่คุณบอกไว้ (ยิงเข้า Google Sheets + Telegram พร้อมกัน)
     const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwLLvLNMk7QqkYIyPgN5efEqcpFzFtEYxuWiCBld5hQvlOf8t8v6vMI19A5q7Dk0-JE0g/exec';
 
-    // ราคา/สินค้าพร้อม SKU และ SEO-friendly text
+    // ราคา/สินค้า/SEO
     const UNIT_PRICE = 199;
     const PRODUCTS = [
       { id:'831', text:'831 Bewitching Berry (เบอร์รี่)', sku:'MB-MG-831', seo:'ลิปสติกสีเบอร์รี่ ปากชมพูอมแดง สุขภาพดี Magic Glow M-BLITHE' },
@@ -319,7 +304,7 @@
     const okToast = document.getElementById('okToast');
     const submitBtn = document.getElementById('submitBtn');
 
-    // ===== RENDER CHIPS =====
+    // ===== Render option chips =====
     function renderChips(){
       [optContainer, optContainerModal].forEach((wrap)=>{
         wrap.innerHTML='';
@@ -347,11 +332,11 @@
       updateEmbed();
     }
 
-    // Default
+    // ===== Default: render & select first =====
     renderChips();
     selectShade(PRODUCTS[0].id);
 
-    // ===== QTY STEPPER =====
+    // ===== Quantity steppers =====
     document.getElementById('minusBtn').onclick=()=>{ if(qtyInput.value>1){ qtyInput.value--; syncQty(); } };
     document.getElementById('plusBtn').onclick=()=>{ qtyInput.value++; syncQty(); };
     document.getElementById('mMinus').onclick=()=>{ if(mQty.value>1){ mQty.value--; syncQty('modal'); } };
@@ -377,48 +362,90 @@
     }
 
     function updateEmbed(){
+      // ถ้ายังไม่ได้เลือกเฉด ให้เลือกอัตโนมัติ (กันเคสกดซื้อไม่ได้)
+      if(!shadeIdInput.value){
+        selectShade(PRODUCTS[0].id);
+      }
       const q = parseInt(quantityInput.value||'1',10);
       const shade = PRODUCTS.find(x=>x.id===shadeIdInput.value);
       const name = 'M-BLITHE Magic Glow Lipstick';
-      // product field ต้องฝัง ราคา + จำนวน (ตามสเปก)
       const embed = `${name} - ${shade ? shade.text : ''} - ฿${UNIT_PRICE} x${q}`;
       productEmbed.value = embed;
     }
 
-    // ===== OPEN/CLOSE SHEET =====
+    // ===== Open/Close sheet =====
     buyBtn.onclick=()=>{
       sheet.style.display='block';
       const val = UNIT_PRICE * parseInt(quantityInput.value||'1',10);
-      if(window.fbq) { fbq('track','AddToCart',{value: val, currency:'THB'}); fbq('track','InitiateCheckout',{value: val, currency:'THB'}); }
-      if(window.ttq) { ttq.track('AddToCart'); ttq.track('InitiateCheckout'); }
-      if(window.gtag) gtag('event','begin_checkout',{value: val, currency:'THB'});
+      if(window.fbq){ fbq('track','AddToCart',{value:val,currency:'THB'}); fbq('track','InitiateCheckout',{value:val,currency:'THB'}); }
+      if(window.ttq){ ttq.track('AddToCart'); ttq.track('InitiateCheckout'); }
+      if(window.gtag){ gtag('event','begin_checkout',{value:val,currency:'THB'}); }
     };
     closeSheet.onclick=()=>sheet.style.display='none';
     sheet.addEventListener('click',e=>{ if(e.target===sheet){ sheet.style.display='none'; }});
 
-    // ===== SUBMIT ORDER =====
+    // ===== LINE tracking =====
+    function trackLine(){
+      if(window.fbq) fbq('track','Contact');
+      if(window.ttq) ttq.track('Contact');
+    }
+    document.getElementById('lineBtnTop').addEventListener('click',trackLine);
+    document.getElementById('lineBtnBottom').addEventListener('click',trackLine);
+
+    // ===== Submit to Google Apps Script (เพิ่มความทนทาน) =====
     async function submitOrder(e){
       e.preventDefault();
+
+      // กันเคสไม่ได้เลือกเฉด
+      if(!shadeIdInput.value){ selectShade(PRODUCTS[0].id); }
+
+      // สร้าง Order ID
       orderIdInput.value = 'ORD-' + Date.now();
 
-      // ป้องกันชีตตัด 0 เบอร์โทร: prepend '
+      // กันชีตตัด 0 เบอร์โทร: prepend "'" เสมอ
       const phoneEl = document.getElementById('cust_phone');
       if(phoneEl && phoneEl.value && !phoneEl.value.startsWith("'")){
         phoneEl.value = "'" + phoneEl.value;
       }
 
+      // ล็อกปุ่ม
       submitBtn.disabled = true;
       const oldLabel = submitBtn.textContent;
       submitBtn.textContent = 'กำลังส่งข้อมูล...';
 
+      // ฟังก์ชันแปลง response ให้รองรับ JSON หรือ Text
+      async function parseMaybeJSON(res){
+        const contentType = res.headers.get('content-type') || '';
+        if(contentType.includes('application/json')){
+          return await res.json();
+        } else {
+          const text = await res.text();
+          return { result: (text.toLowerCase().includes('success')?'success':'unknown'), raw:text };
+        }
+      }
+
+      // ส่งคำขอพร้อม timeout ป้องกันค้าง
+      const controller = new AbortController();
+      const t = setTimeout(()=>controller.abort(), 15000); // 15s
+
       try{
         const form = new FormData(document.getElementById('orderForm'));
-        const res = await fetch(GOOGLE_SHEET_WEB_APP_URL,{method:'POST', body: form});
-        const data = await res.json();
+        console.log('[ORDER] submitting to Apps Script:', GOOGLE_SHEET_WEB_APP_URL);
+
+        let res = await fetch(GOOGLE_SHEET_WEB_APP_URL,{
+          method:'POST',
+          body: form,
+          signal: controller.signal
+        });
+        clearTimeout(t);
+
+        const data = await parseMaybeJSON(res);
+        console.log('[ORDER] response:', data);
 
         submitBtn.disabled=false; submitBtn.textContent=oldLabel;
 
-        if(data.result==='success'){
+        if(res.ok && (data.result==='success' || data.raw)){
+          // Success (รองรับทั้ง JSON และ Text)
           sheet.style.display='none';
           document.getElementById('orderForm').reset();
           selectShade(PRODUCTS[0].id);
@@ -437,12 +464,13 @@
             gtag('event','conversion',{'send_to':'AW-17035064059/53zPCNHE2OIaEPvl-bo_','value': total,'currency':'THB'});
           }
         }else{
-          alert('เกิดข้อผิดพลาด: ' + (data.message || 'ไม่ทราบสาเหตุ'));
+          alert('เกิดข้อผิดพลาด: ' + (data.raw || data.message || res.status + ' ' + res.statusText));
         }
       }catch(err){
+        clearTimeout(t);
         submitBtn.disabled=false; submitBtn.textContent=oldLabel;
-        alert('เกิดข้อผิดพลาดในการส่งข้อมูล: ' + err.message);
-        console.error(err);
+        console.error('[ORDER] error:', err);
+        alert('ส่งข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้งหรือติดต่อทางไลน์\nรายละเอียด: ' + (err.message || err));
       }
     }
 
