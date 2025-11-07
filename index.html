@@ -425,7 +425,10 @@
         <input id="name" name="name" required placeholder="กรอกชื่อ-นามสกุล">
 
         <label for="phone">เบอร์โทรศัพท์</label>
-        <input id="phone" name="phone" required placeholder="0812345678" pattern="^[0-9]{10}$" title="กรอกเบอร์โทร 10 หลัก">
+        <input id="phone" name="phone" type="tel" inputmode="numeric" required
+       placeholder="0812345678" minlength="10" maxlength="10"
+       oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
 
         <label for="address">ที่อยู่จัดส่ง</label>
         <textarea id="address" name="address" rows="3" required placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์"></textarea>
