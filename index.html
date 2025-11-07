@@ -578,43 +578,49 @@
     }
 
     /* ===== Submit to Google Sheet (5 ฟิลด์) ===== */
-    async function sendOrder(e){
-      e.preventDefault();
-      orderIdField.value = 'ORD-' + Date.now();
-      updateProductEmbed();
+<script>
+  async function sendOrder(e){
+    e.preventDefault();
+    orderIdField.value = 'ORD-' + Date.now();
+    updateProductEmbed();
 
-      const old = submitBtn.textContent;
-      submitBtn.disabled=true; submitBtn.textContent='กำลังส่ง...';
+    const old = submitBtn.textContent;
+    submitBtn.disabled=true; submitBtn.textContent='กำลังส่ง...';
 
-      try{
-        const form = new FormData(document.getElementById('orderForm'));
-        const res = await fetch(APP_URL,{method:'POST',body:form});
-        let ok=false, data=null;
-        try{ data = await res.clone().json(); ok = data && data.result==='success'; }catch(_){ ok = res.ok; }
+    try{
+      const formEl = document.getElementById('orderForm');
+      const fd = new FormData(formEl);
 
-        submitBtn.disabled=false; submitBtn.textContent=old;
+      // ✅ บังคับให้ Google Sheets เก็บเป็นข้อความ (ไม่ตัดเลข 0)
+      const phoneRaw = (formEl.phone.value || '').trim();
+      fd.set('phone', "'" + phoneRaw);   // เติม ' ข้างหน้าเบอร์ก่อนส่ง
 
-        if(ok){
-          sheet.style.display='none';
-          document.getElementById('orderForm').reset();
-          selectShade(SHADES[0].id); updateProductEmbed();
-          toast.style.display='block'; setTimeout(()=>toast.style.display='none',2200);
+      const res = await fetch(APP_URL,{method:'POST',body:fd});
+      let ok=false, data=null;
+      try{ data = await res.clone().json(); ok = data && data.result==='success'; }catch(_){ ok = res.ok; }
 
-          if(window.fbq) fbq('track','Purchase',{value:PRICE,currency:'THB'});
-          if(window.ttq) ttq.track('CompletePayment',{value:PRICE,currency:'THB'});
-          if(window.gtag) gtag('event','conversion',{'send_to':'AW-17035064059/53zPCNHE2OIaEPvl-bo_','value':PRICE,'currency':'THB'});
+      submitBtn.disabled=false; submitBtn.textContent=old;
 
-          /* 🔔 แสดงบับเบิล "กำลังสั่งซื้อ" จากออเดอร์จริง */
-          __lbOrderSuccessHook();
+      if(ok){
+        sheet.style.display='none';
+        formEl.reset();
+        selectShade(SHADES[0].id); updateProductEmbed();
+        toast.style.display='block'; setTimeout(()=>toast.style.display='none',2200);
 
-        }else{
-          alert('ส่งไม่สำเร็จ กรุณาลองใหม่ หรือติดต่อทางไลน์');
-        }
-      }catch(err){
-        submitBtn.disabled=false; submitBtn.textContent=old;
-        console.error(err); alert('มีข้อผิดพลาดในการส่งข้อมูล: '+(err.message||err));
+        if(window.fbq) fbq('track','Purchase',{value:PRICE,currency:'THB'});
+        if(window.ttq) ttq.track('CompletePayment',{value:PRICE,currency:'THB'});
+        if(window.gtag) gtag('event','conversion',{'send_to':'AW-17035064059/53zPCNHE2OIaEPvl-bo_','value':PRICE,'currency':'THB'});
+
+        __lbOrderSuccessHook();
+      }else{
+        alert('ส่งไม่สำเร็จ กรุณาลองใหม่ หรือติดต่อทางไลน์');
       }
+    }catch(err){
+      submitBtn.disabled=false; submitBtn.textContent=old;
+      console.error(err); alert('มีข้อผิดพลาดในการส่งข้อมูล: '+(err.message||err));
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
